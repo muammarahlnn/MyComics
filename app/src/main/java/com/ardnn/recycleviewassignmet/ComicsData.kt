@@ -1,7 +1,5 @@
 package com.ardnn.recycleviewassignmet
 
-import android.util.Log
-
 object ComicsData {
     private val comicsData = arrayOf(
         arrayOf(
@@ -96,6 +94,7 @@ object ComicsData {
         R.drawable.snk,
         R.drawable.kuroko
     )
+
 
     val listData: ArrayList<Comic>
         get() {
