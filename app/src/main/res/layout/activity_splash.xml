@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_primary"
+    android:background="@color/border_gray"
     tools:context=".SplashActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:text="MyComics"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/yellow_primary"
+        android:textColor="@color/blue_primary"
         android:fontFamily="@font/monsterrat_medium"
         app:layout_constraintBottom_toTopOf="@+id/iv_logo_comics_splash"
         app:layout_constraintEnd_toEndOf="@+id/iv_logo_comics_splash"
@@ -24,10 +24,9 @@
         android:id="@+id/iv_logo_comics_splash"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo_comics_white"
+        android:src="@drawable/logo_comics_black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.450" />
@@ -38,9 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Find your favorite comcis here"
-        android:textStyle="bold"
         android:textSize="18sp"
-        android:textColor="@color/yellow_primary"
+        android:textColor="@color/blue_primary"
         android:fontFamily="@font/monsterrat_light"
         app:layout_constraintEnd_toEndOf="@+id/iv_logo_comics_splash"
         app:layout_constraintStart_toStartOf="@+id/iv_logo_comics_splash"

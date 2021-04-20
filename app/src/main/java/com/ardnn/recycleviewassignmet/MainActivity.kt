@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvComics = findViewById(R.id.rv_comics)
+        rvComics = findViewById(R.id.rv_comics_main)
         rvComics.setHasFixedSize(true)
 
         listComics.addAll(ComicsData.listData)

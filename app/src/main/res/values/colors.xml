@@ -13,7 +13,12 @@
     <color name="yellow_secondary">#FFFF66</color>
 
     <color name="blue_primary">#0064D2</color>
+    <color name="blue_secondary">#2595F5</color>
+
 
     <color name="black_primary">#21272C</color>
+
+    <color name="border_gray">#EBEBEB</color>
+
 
 </resources>
