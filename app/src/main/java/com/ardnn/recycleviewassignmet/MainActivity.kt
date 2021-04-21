@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // read a file from assets folder
+        // get dataset comics from assets folder
         ComicsData.getDataset(this, "dataset.txt")
 
 
@@ -50,7 +50,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(goToDetail)
     }
 
-    fun getDataset(): String {
-        return dataset
-    }
 }
