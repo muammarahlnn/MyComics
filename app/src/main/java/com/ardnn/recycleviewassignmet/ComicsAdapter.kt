@@ -28,9 +28,6 @@ class ComicsAdapter(private val listComics: ArrayList<Comic>)
         holder.tvComicsTitle.text = comic.title
         holder.tvComicsSummary.text = comic.summary
         holder.ivComicsImage.setImageResource(comic.image)
-        if (position == listComics.size - 1) {
-            holder.vBottomLine.visibility = View.GONE
-        }
 
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(listComics[holder.adapterPosition])
@@ -45,7 +42,6 @@ class ComicsAdapter(private val listComics: ArrayList<Comic>)
         var tvComicsTitle: TextView = itemView.findViewById(R.id.tv_comics_title)
         var tvComicsSummary: TextView = itemView.findViewById(R.id.tv_comics_summary)
         var ivComicsImage: ImageView = itemView.findViewById(R.id.iv_comics_image)
-        var vBottomLine: View = itemView.findViewById(R.id.v_bottom_line)
     }
 
     interface OnItemClickCallback {
