@@ -15,12 +15,12 @@
         <com.github.florent37.shapeofview.shapes.ArcView
             android:id="@+id/av_detail_wallpaper"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="240dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shape_arc_cropDirection="outside"
-            app:shape_arc_height="50dp"
+            app:shape_arc_height="25dp"
             app:shape_arc_position="bottom">
 
             <ImageView
@@ -36,7 +36,7 @@
             android:id="@+id/space1_detail"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="82dp"
+            android:layout_marginBottom="64dp"
 
             app:layout_constraintBottom_toBottomOf="@id/av_detail_wallpaper"
             app:layout_constraintLeft_toLeftOf="@id/av_detail_wallpaper"
@@ -209,12 +209,14 @@
         <Button
             android:id="@+id/btn_home_detail"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:background="@drawable/bg_btn_blue"
 
             android:text="HOME"
             android:textStyle="bold"
+            android:textSize="21sp"
             android:textColor="@color/white"
+            android:fontFamily="@font/monsterrat_medium"
 
             android:layout_margin="24dp"
 
