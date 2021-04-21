@@ -14,7 +14,8 @@ class DetailActivity : AppCompatActivity() {
             "extra_author",
             "extra_publisher",
             "extra_synopsis",
-            "extra_image"
+            "extra_image",
+            "extra_wallpaper"
         )
     }
 
@@ -31,13 +32,13 @@ class DetailActivity : AppCompatActivity() {
             findViewById(R.id.tv_detail_synopsis)
         )
 
-        for (i in 0 until EXTRAS.size - 1) {
+        for (i in 0 until EXTRAS.size - 2) {
             tvComicsDetails[i].text = intent.getStringExtra(EXTRAS[i])
         }
 
 
         var ivDetailImage: ImageView = findViewById(R.id.iv_detail_image)
-        ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], R.color.white))
+        ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-2], R.color.white))
 
         var ivDetailWallpaper: ImageView = findViewById(R.id.iv_detail_wallpaper)
         ivDetailWallpaper.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], R.color.white))

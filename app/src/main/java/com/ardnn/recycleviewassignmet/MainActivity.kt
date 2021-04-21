@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
     private lateinit var rvComics: RecyclerView
     private var listComics: ArrayList<Comic> = arrayListOf()
-    private lateinit var dataset: String
+    private val datasetName: String = "dataset.txt"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // get dataset comics from assets folder
-        ComicsData.getDataset(this, "dataset.txt")
+        ComicsData.getDataset(this, datasetName)
 
 
         // initialize widget
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         goToDetail.putExtra(DetailActivity.EXTRAS[2], comic.publisher)
         goToDetail.putExtra(DetailActivity.EXTRAS[3], comic.synopsis)
         goToDetail.putExtra(DetailActivity.EXTRAS[4], comic.image)
+        goToDetail.putExtra(DetailActivity.EXTRAS[5], comic.wallpaper)
         startActivity(goToDetail)
     }
 

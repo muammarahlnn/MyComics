@@ -1,22 +1,21 @@
 package com.ardnn.recycleviewassignmet
 
 import android.app.Activity
-import android.util.Log
 
 object ComicsData {
     private var dataset = arrayListOf<ArrayList<String>>()
-    private val comicImages = intArrayOf(
-            R.drawable.onepiece,
-            R.drawable.hxh,
-            R.drawable.naruto,
-            R.drawable.hitman,
-            R.drawable.haikyuu,
-            R.drawable.bnha,
-            R.drawable.opm,
-            R.drawable.solo,
-            R.drawable.kny,
-            R.drawable.snk,
-            R.drawable.kuroko
+    private val comicPhotos = arrayOf(
+            intArrayOf(R.drawable.op_cover, R.drawable.op_wallpaper),
+            intArrayOf(R.drawable.hxh_cover, R.drawable.hxh_wallpaper),
+            intArrayOf(R.drawable.naruto_cover, R.drawable.naruto_wallpaper),
+            intArrayOf(R.drawable.hitman_cover, R.drawable.hitman_wallpaper),
+            intArrayOf(R.drawable.haikyuu_cover, R.drawable.haikyuu_wallpaper),
+            intArrayOf(R.drawable.bnha_cover, R.drawable.bnha_wallpaper),
+            intArrayOf(R.drawable.opm_cover, R.drawable.opm_wallpaper),
+            intArrayOf(R.drawable.solo_cover, R.drawable.solo_wallpaper),
+            intArrayOf(R.drawable.kny_cover, R.drawable.kny_wallpaper),
+            intArrayOf(R.drawable.snk_cover, R.drawable.snk_wallpaper),
+            intArrayOf(R.drawable.kuroko_cover, R.drawable.kuroko_wallpaper)
     )
 
     fun getDataset(context: Activity, filename: String) {
@@ -52,7 +51,8 @@ object ComicsData {
                 comic.publisher = dataset[i][2]
                 comic.summary = dataset[i][3]
                 comic.synopsis = dataset[i][4]
-                comic.image = comicImages[i]
+                comic.image = comicPhotos[i][0]
+                comic.wallpaper = comicPhotos[i][1]
 
                 list.add(comic)
             }
