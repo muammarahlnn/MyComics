@@ -2,6 +2,8 @@ package com.ardnn.recycleviewassignmet
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -11,11 +13,12 @@ class DetailActivity : AppCompatActivity() {
             "extra_title",
             "extra_author",
             "extra_publisher",
-            "extra_summary",
             "extra_synopsis",
             "extra_image"
         )
     }
+
+    private lateinit var btnHome: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +28,6 @@ class DetailActivity : AppCompatActivity() {
             findViewById(R.id.tv_detail_title),
             findViewById(R.id.tv_detail_author),
             findViewById(R.id.tv_detail_publisher),
-            findViewById(R.id.tv_detail_summary),
             findViewById(R.id.tv_detail_synopsis)
         )
 
@@ -35,5 +37,10 @@ class DetailActivity : AppCompatActivity() {
 
         var ivDetailImage: ImageView = findViewById(R.id.iv_detail_image)
         ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], 0))
+
+        btnHome = findViewById(R.id.btn_home_detail)
+        btnHome.setOnClickListener(View.OnClickListener {
+            finish()
+        })
     }
 }
