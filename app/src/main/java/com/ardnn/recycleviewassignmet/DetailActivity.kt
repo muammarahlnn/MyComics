@@ -35,8 +35,12 @@ class DetailActivity : AppCompatActivity() {
             tvComicsDetails[i].text = intent.getStringExtra(EXTRAS[i])
         }
 
+
         var ivDetailImage: ImageView = findViewById(R.id.iv_detail_image)
-        ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], 0))
+        ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], R.color.white))
+
+        var ivDetailWallpaper: ImageView = findViewById(R.id.iv_detail_wallpaper)
+        ivDetailWallpaper.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], R.color.white))
 
         btnHome = findViewById(R.id.btn_home_detail)
         btnHome.setOnClickListener(View.OnClickListener {
