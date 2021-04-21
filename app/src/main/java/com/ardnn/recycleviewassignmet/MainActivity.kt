@@ -39,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         goToDetail.putExtra(DetailActivity.EXTRAS[0], comic.title)
         goToDetail.putExtra(DetailActivity.EXTRAS[1], comic.author)
         goToDetail.putExtra(DetailActivity.EXTRAS[2], comic.publisher)
-        goToDetail.putExtra(DetailActivity.EXTRAS[3], comic.summary)
-        goToDetail.putExtra(DetailActivity.EXTRAS[4], comic.synopsis)
-        goToDetail.putExtra(DetailActivity.EXTRAS[5], comic.image)
+        goToDetail.putExtra(DetailActivity.EXTRAS[3], comic.synopsis)
+        goToDetail.putExtra(DetailActivity.EXTRAS[4], comic.image)
         startActivity(goToDetail)
     }
 
