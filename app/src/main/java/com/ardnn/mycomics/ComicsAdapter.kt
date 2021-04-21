@@ -1,4 +1,4 @@
-package com.ardnn.recycleviewassignmet
+package com.ardnn.mycomics
 
 import android.view.LayoutInflater
 import android.view.View

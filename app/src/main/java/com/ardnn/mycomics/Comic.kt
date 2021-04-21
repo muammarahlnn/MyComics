@@ -1,4 +1,4 @@
-package com.ardnn.recycleviewassignmet
+package com.ardnn.mycomics
 
 data class Comic(
     var title: String = "",
