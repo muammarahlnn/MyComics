@@ -3,6 +3,7 @@ package com.ardnn.recycleviewassignmet
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,11 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
     private lateinit var rvComics: RecyclerView
     private var listComics: ArrayList<Comic> = arrayListOf()
-
+    private lateinit var dataset: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // read a file from assets folder
+        ComicsData.getDataset(this, "dataset.txt")
+
+
+        // initialize widget
         rvComics = findViewById(R.id.rv_comics_main)
         rvComics.setHasFixedSize(true)
 
@@ -44,5 +50,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(goToDetail)
     }
 
-
+    fun getDataset(): String {
+        return dataset
+    }
 }
