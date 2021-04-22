@@ -7,15 +7,15 @@ object ComicsData {
     private val comicPhotos = arrayOf(
             intArrayOf(R.drawable.op_cover, R.drawable.op_wallpaper),
             intArrayOf(R.drawable.hxh_cover, R.drawable.hxh_wallpaper),
-            intArrayOf(R.drawable.naruto_cover, R.drawable.naruto_wallpaper),
+            intArrayOf(R.drawable.snk_cover, R.drawable.snk_wallpaper),
+            intArrayOf(R.drawable.kny_cover, R.drawable.kny_wallpaper),
             intArrayOf(R.drawable.hitman_cover, R.drawable.hitman_wallpaper),
             intArrayOf(R.drawable.haikyuu_cover, R.drawable.haikyuu_wallpaper),
-            intArrayOf(R.drawable.bnha_cover, R.drawable.bnha_wallpaper),
             intArrayOf(R.drawable.opm_cover, R.drawable.opm_wallpaper),
+            intArrayOf(R.drawable.bnha_cover, R.drawable.bnha_wallpaper),
+            intArrayOf(R.drawable.kuroko_cover, R.drawable.kuroko_wallpaper),
+            intArrayOf(R.drawable.naruto_cover, R.drawable.naruto_wallpaper),
             intArrayOf(R.drawable.solo_cover, R.drawable.solo_wallpaper),
-            intArrayOf(R.drawable.kny_cover, R.drawable.kny_wallpaper),
-            intArrayOf(R.drawable.snk_cover, R.drawable.snk_wallpaper),
-            intArrayOf(R.drawable.kuroko_cover, R.drawable.kuroko_wallpaper)
     )
 
     fun getDataset(context: Activity, filename: String) {
