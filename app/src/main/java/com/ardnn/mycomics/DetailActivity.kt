@@ -14,24 +14,23 @@ import com.github.florent37.shapeofview.shapes.RoundRectView
 
 class DetailActivity : AppCompatActivity() {
     companion object {
-        val EXTRAS = arrayOf(
-            "extra_title",
-            "extra_author",
-            "extra_publisher",
-            "extra_synopsis",
-            "extra_image",
-            "extra_wallpaper"
-        )
+        const val EXTRA_COMICS = "extra_comics"
     }
 
     // widgets
+    private lateinit var tvDetailTitle: TextView
+    private lateinit var tvDetailAuthor: TextView
+    private lateinit var tvDetailPublisher: TextView
+    private lateinit var tvDetailSynopsis: TextView
+    private lateinit var ivDetailImage: ImageView
+    private lateinit var ivDetailWallpaper: ImageView
     private lateinit var btnHome: Button
     private lateinit var avDetailWallpaper: ArcView
     private lateinit var rrvDetailImage: RoundRectView
 
     // animations
     private lateinit var animTopToBottom: Animation
-    private lateinit var animBottomToTOp: Animation
+    private lateinit var animBottomToTop: Animation
     private lateinit var animLeftToRight: Animation
     private lateinit var animRightToLeft: Animation
     private lateinit var llDetailData: LinearLayout
@@ -40,38 +39,43 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        // get comic object from previous intent
+        val comic = intent.getParcelableExtra<Comic>(EXTRA_COMICS) as Comic
+
         // initialize widgets
-        var tvComicsDetails: Array<TextView> = arrayOf(
-            findViewById(R.id.tv_detail_title),
-            findViewById(R.id.tv_detail_author),
-            findViewById(R.id.tv_detail_publisher),
-            findViewById(R.id.tv_detail_synopsis)
-        )
-        var ivDetailImage: ImageView = findViewById(R.id.iv_detail_image)
-        var ivDetailWallpaper: ImageView = findViewById(R.id.iv_detail_wallpaper)
+        tvDetailTitle = findViewById(R.id.tv_detail_title)
+        tvDetailAuthor = findViewById(R.id.tv_detail_author)
+        tvDetailPublisher = findViewById(R.id.tv_detail_publisher)
+        tvDetailSynopsis = findViewById(R.id.tv_detail_synopsis)
+
+        ivDetailImage = findViewById(R.id.iv_detail_image)
+        ivDetailWallpaper = findViewById(R.id.iv_detail_wallpaper)
+
         avDetailWallpaper = findViewById(R.id.av_detail_wallpaper)
         rrvDetailImage = findViewById(R.id.rrv_detail_image)
         llDetailData = findViewById(R.id.ll_detail_data)
 
         // set widgets content
-        for (i in 0 until EXTRAS.size - 2) {
-            tvComicsDetails[i].text = intent.getStringExtra(EXTRAS[i])
-        }
-        ivDetailImage.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-2], R.color.white))
-        ivDetailWallpaper.setImageResource(intent.getIntExtra(EXTRAS[EXTRAS.size-1], R.color.white))
+        tvDetailTitle.text = comic.title
+        tvDetailAuthor.text = comic.author
+        tvDetailPublisher.text = comic.publisher
+        tvDetailSynopsis.text = comic.synopsis
+
+        ivDetailImage.setImageResource(comic.image)
+        ivDetailWallpaper.setImageResource(comic.wallpaper)
 
         // load animations
         animTopToBottom = AnimationUtils.loadAnimation(this, R.anim.top_to_bottom)
-        animBottomToTOp = AnimationUtils.loadAnimation(this, R.anim.bottom_to_top)
+        animBottomToTop = AnimationUtils.loadAnimation(this, R.anim.bottom_to_top)
         animLeftToRight = AnimationUtils.loadAnimation(this, R.anim.left_to_right)
         animRightToLeft = AnimationUtils.loadAnimation(this, R.anim.right_to_left)
 
         // run animations
         avDetailWallpaper.animation = animTopToBottom
         rrvDetailImage.animation = animLeftToRight
-        tvComicsDetails[0].animation = animRightToLeft
-        llDetailData.animation = animBottomToTOp
-        tvComicsDetails[3].animation = animBottomToTOp
+        tvDetailTitle.animation = animRightToLeft
+        llDetailData.animation = animBottomToTop
+        tvDetailSynopsis.animation = animBottomToTop
 
 
         // if button clicked

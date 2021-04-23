@@ -45,14 +45,15 @@ object ComicsData {
         get() {
             val list = arrayListOf<Comic>()
             for (i in dataset.indices) {
-                val comic = Comic()
-                comic.title = dataset[i][0]
-                comic.author = dataset[i][1]
-                comic.publisher = dataset[i][2]
-                comic.summary = dataset[i][3]
-                comic.synopsis = dataset[i][4]
-                comic.image = comicPhotos[i][0]
-                comic.wallpaper = comicPhotos[i][1]
+                val comic = Comic(
+                    dataset[i][0],
+                    dataset[i][1],
+                    dataset[i][2],
+                    dataset[i][3],
+                    dataset[i][4],
+                    comicPhotos[i][0],
+                    comicPhotos[i][1]
+                )
 
                 list.add(comic)
             }
