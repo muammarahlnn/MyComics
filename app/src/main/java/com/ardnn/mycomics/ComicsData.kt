@@ -1,24 +1,15 @@
 package com.ardnn.mycomics
 
 import android.app.Activity
+import android.content.res.TypedArray
 
 object ComicsData {
     private var dataset = arrayListOf<ArrayList<String>>()
-    private val comicPhotos = arrayOf(
-            intArrayOf(R.drawable.op_cover, R.drawable.op_wallpaper),
-            intArrayOf(R.drawable.hxh_cover, R.drawable.hxh_wallpaper),
-            intArrayOf(R.drawable.snk_cover, R.drawable.snk_wallpaper),
-            intArrayOf(R.drawable.kny_cover, R.drawable.kny_wallpaper),
-            intArrayOf(R.drawable.hitman_cover, R.drawable.hitman_wallpaper),
-            intArrayOf(R.drawable.haikyuu_cover, R.drawable.haikyuu_wallpaper),
-            intArrayOf(R.drawable.opm_cover, R.drawable.opm_wallpaper),
-            intArrayOf(R.drawable.bnha_cover, R.drawable.bnha_wallpaper),
-            intArrayOf(R.drawable.kuroko_cover, R.drawable.kuroko_wallpaper),
-            intArrayOf(R.drawable.naruto_cover, R.drawable.naruto_wallpaper),
-            intArrayOf(R.drawable.solo_cover, R.drawable.solo_wallpaper),
-    )
+    private lateinit var comicImages: TypedArray;
+    private lateinit var comicWallpapers: TypedArray;
 
     fun getDataset(context: Activity, filename: String) {
+        // get comic's data (string)
         val text = context.assets.open(filename).bufferedReader().use {
             it.readText()
         }
@@ -28,16 +19,10 @@ object ComicsData {
             dataset.add(data as ArrayList<String>)
         }
 
-        // debug
-//        var temp = ""
-//        for (i in dataset.indices) {
-//            for (j in dataset[i].indices) {
-//                temp += "${dataset[i][j]}\n"
-//            }
-//            temp += "\n"
-//        }
-//
-//        Log.d("ComicsData", temp)
+        // get comic's images and wallpapers
+        comicImages = context.resources.obtainTypedArray(R.array.comic_images)
+        comicWallpapers = context.resources.obtainTypedArray(R.array.comic_wallpapers)
+
     }
 
 
@@ -51,8 +36,8 @@ object ComicsData {
                     dataset[i][2],
                     dataset[i][3],
                     dataset[i][4],
-                    comicPhotos[i][0],
-                    comicPhotos[i][1]
+                    comicImages.getResourceId(i, -1),
+                    comicWallpapers.getResourceId(i, -1)
                 )
 
                 list.add(comic)
