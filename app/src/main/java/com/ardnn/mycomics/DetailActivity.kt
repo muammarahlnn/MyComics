@@ -12,16 +12,18 @@ import android.widget.TextView
 import com.github.florent37.shapeofview.shapes.ArcView
 import com.github.florent37.shapeofview.shapes.RoundRectView
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val EXTRA_COMICS = "extra_comics"
     }
 
     // widgets
+    private lateinit var tvToolbarTitle: TextView
     private lateinit var tvDetailTitle: TextView
     private lateinit var tvDetailAuthor: TextView
     private lateinit var tvDetailPublisher: TextView
     private lateinit var tvDetailSynopsis: TextView
+    private lateinit var ivBack: ImageView
     private lateinit var ivDetailImage: ImageView
     private lateinit var ivDetailWallpaper: ImageView
     private lateinit var btnHome: Button
@@ -43,11 +45,13 @@ class DetailActivity : AppCompatActivity() {
         val comic = intent.getParcelableExtra<Comic>(EXTRA_COMICS) as Comic
 
         // initialize widgets
+        tvToolbarTitle = findViewById(R.id.tv_toolbar_title_detail)
         tvDetailTitle = findViewById(R.id.tv_detail_title)
         tvDetailAuthor = findViewById(R.id.tv_detail_author)
         tvDetailPublisher = findViewById(R.id.tv_detail_publisher)
         tvDetailSynopsis = findViewById(R.id.tv_detail_synopsis)
 
+        ivBack = findViewById(R.id.iv_back_detail)
         ivDetailImage = findViewById(R.id.iv_detail_image)
         ivDetailWallpaper = findViewById(R.id.iv_detail_wallpaper)
 
@@ -55,7 +59,10 @@ class DetailActivity : AppCompatActivity() {
         rrvDetailImage = findViewById(R.id.rrv_detail_image)
         llDetailData = findViewById(R.id.ll_detail_data)
 
+        btnHome = findViewById(R.id.btn_home_detail)
+
         // set widgets content
+        tvToolbarTitle.text = comic.title
         tvDetailTitle.text = comic.title
         tvDetailAuthor.text = comic.author
         tvDetailPublisher.text = comic.publisher
@@ -79,9 +86,14 @@ class DetailActivity : AppCompatActivity() {
 
 
         // if button clicked
-        btnHome = findViewById(R.id.btn_home_detail)
-        btnHome.setOnClickListener(View.OnClickListener {
-            finish()
-        })
+        btnHome.setOnClickListener(this)
+        ivBack.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.iv_back_detail -> finish()
+            R.id.btn_home_detail -> finish()
+        }
     }
 }

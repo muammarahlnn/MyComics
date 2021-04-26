@@ -12,6 +12,7 @@ class RecentFragment : Fragment() {
         fun newInstance(): RecentFragment {
             val fragment = RecentFragment()
             val args = Bundle()
+            args.putString(MainActivity.EXTRA_STRING, "Recent")
             fragment.arguments = args
 
             return fragment
@@ -23,5 +24,6 @@ class RecentFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_recent, container, false)
     }
+
 
 }

@@ -12,6 +12,7 @@ class FavoriteFragment : Fragment() {
         fun newInstance(): FavoriteFragment {
             val fragment = FavoriteFragment()
             val args = Bundle()
+            args.putString(MainActivity.EXTRA_STRING, "Favorite")
             fragment.arguments = args
 
             return fragment
