@@ -20,9 +20,9 @@
 
         <ImageView
             android:id="@+id/iv_back_detail"
-            android:layout_width="21dp"
-            android:layout_height="21dp"
-            android:layout_marginStart="12dp"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:paddingVertical="5dp"
             android:src="@drawable/ic_back_white"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -39,10 +39,11 @@
             android:textColor="@color/white"
             android:textSize="21sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_back_detail"
-            app:layout_constraintTop_toTopOf="parent" />
 
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -58,7 +59,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="50dp">
+            android:paddingBottom="100dp"
+            >
 
             <com.github.florent37.shapeofview.shapes.ArcView
                 android:id="@+id/av_detail_wallpaper"
@@ -264,8 +266,6 @@
                 android:fontFamily="@font/monsterrat_medium"
                 android:text="HOME"
                 android:textColor="@color/white"
-                android:textSize="21sp"
-
                 android:textStyle="bold"
 
                 app:layout_constraintEnd_toEndOf="parent"
