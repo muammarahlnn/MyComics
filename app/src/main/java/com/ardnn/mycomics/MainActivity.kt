@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .replace(R.id.fl_main, fragment)
                     .commit()
 
-
         }
 
         return true
