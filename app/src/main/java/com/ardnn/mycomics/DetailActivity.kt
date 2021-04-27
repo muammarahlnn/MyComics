@@ -42,7 +42,10 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_detail)
 
         // get comic object from previous intent
-        val comic = intent.getParcelableExtra<Comic>(EXTRA_COMICS) as Comic
+        val comic: Comic = intent.getParcelableExtra<Comic>(EXTRA_COMICS) as Comic
+
+        // add comic to recent comics
+        ComicsData.addRecentComic(comic)
 
         // initialize widgets
         tvToolbarTitle = findViewById(R.id.tv_toolbar_title_detail)

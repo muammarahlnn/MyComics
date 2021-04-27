@@ -55,9 +55,6 @@ class HomeFragment() : Fragment(), OnItemClickListener<Comic> {
     }
 
     override fun onClick(comic: Comic) {
-        // add comic to recent comics
-        ComicsData.addRecentComic(comic)
-
         // go to detail activity
         val goToDetail = Intent(activity, DetailActivity::class.java)
         goToDetail.putExtra(DetailActivity.EXTRA_COMICS, comic)
