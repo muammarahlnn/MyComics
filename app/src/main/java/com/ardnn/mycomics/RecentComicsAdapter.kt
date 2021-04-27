@@ -1,6 +1,5 @@
 package com.ardnn.mycomics
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,13 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ComicsAdapter : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
-
-    private lateinit var listComics: ArrayList<Comic>
+class RecentComicsAdapter : RecyclerView.Adapter<RecentComicsAdapter.ViewHolder>() {
+    private lateinit var listRecentComics: ArrayList<Comic>
     private lateinit var clickListener: OnItemClickListener<Comic>
 
-    fun setComics(listComics: ArrayList<Comic>) {
-        this.listComics = listComics
+    fun setComics(listRecentComics: ArrayList<Comic>) {
+        this.listRecentComics = listRecentComics
     }
 
     fun setClickListener(clickListener: OnItemClickListener<Comic>) {
@@ -23,17 +21,17 @@ class ComicsAdapter : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.rv_comics_item, parent, false)
+                .inflate(R.layout.rv_comics_item, parent, false)
 
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(listComics[position])
+        holder.onBind(listRecentComics[position])
     }
 
     override fun getItemCount(): Int {
-        return listComics.size
+        return listRecentComics.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
@@ -59,6 +57,7 @@ class ComicsAdapter : RecyclerView.Adapter<ComicsAdapter.ViewHolder>() {
         override fun onClick(v: View?) {
             clickListener.onClick(comic)
         }
+
 
     }
 

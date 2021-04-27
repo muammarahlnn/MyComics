@@ -8,24 +8,6 @@ object ComicsData {
     private lateinit var comicImages: TypedArray;
     private lateinit var comicWallpapers: TypedArray;
 
-    fun getDataset(context: Activity, filename: String) {
-        // get comic's data (string)
-        val text = context.assets.open(filename).bufferedReader().use {
-            it.readText()
-        }
-        val comics = text.split("\n").toList()
-        for (i in comics.indices) {
-            val data = comics[i].split(";").toList()
-            dataset.add(data as ArrayList<String>)
-        }
-
-        // get comic's images and wallpapers
-        comicImages = context.resources.obtainTypedArray(R.array.comic_images)
-        comicWallpapers = context.resources.obtainTypedArray(R.array.comic_wallpapers)
-
-    }
-
-
     val listData: ArrayList<Comic>
         get() {
             val list = arrayListOf<Comic>()
@@ -45,5 +27,31 @@ object ComicsData {
 
             return list
         }
+
+    val recentComics = arrayListOf<Comic>()
+
+    fun getDataset(context: Activity, filename: String) {
+        // get comic's data (string)
+        val text = context.assets.open(filename).bufferedReader().use {
+            it.readText()
+        }
+        val comics = text.split("\n").toList()
+        for (i in comics.indices) {
+            val data = comics[i].split(";").toList()
+            dataset.add(data as ArrayList<String>)
+        }
+
+        // get comic's images and wallpapers
+        comicImages = context.resources.obtainTypedArray(R.array.comic_images)
+        comicWallpapers = context.resources.obtainTypedArray(R.array.comic_wallpapers)
+
+    }
+
+    fun addRecentComic(comic: Comic) {
+        if (recentComics.contains(comic)) {
+            recentComics.remove(comic)
+        }
+        recentComics.add(0, comic)
+    }
 
 }
