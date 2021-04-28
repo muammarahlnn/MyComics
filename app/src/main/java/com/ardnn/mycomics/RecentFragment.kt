@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class RecentFragment  : Fragment(), OnItemClickListener<Comic> {
 
+    private lateinit var tvAnnouncement: TextView
     private lateinit var rvRecentComics: RecyclerView
     private lateinit var recentComicsAdapter: RecentComicsAdapter
 
@@ -39,11 +41,17 @@ class RecentFragment  : Fragment(), OnItemClickListener<Comic> {
 
         // initialization
         rvRecentComics = view.findViewById(R.id.rv_comics_recent)
+        tvAnnouncement = view.findViewById(R.id.tv_announcement)
+
+        if (!ComicsData.recentComics.isEmpty()) {
+            tvAnnouncement.visibility = View.GONE
+        }
         recentComicsAdapter = RecentComicsAdapter()
     }
 
     override fun onStart() {
         super.onStart()
+
 
         recentComicsAdapter.setClickListener(this)
         recentComicsAdapter.setComics(ComicsData.recentComics)
